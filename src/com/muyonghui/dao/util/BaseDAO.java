@@ -2,7 +2,7 @@ package com.muyonghui.dao.util;/*
  * Created by muyonghui on 2017/8/2.
  */
 
-import com.muyh.bean.User;
+import com.muyonghui.dao.bean.User;
 
 import java.lang.reflect.Field;
 import java.sql.Connection;
