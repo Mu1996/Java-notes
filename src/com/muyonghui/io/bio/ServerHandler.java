@@ -1,4 +1,4 @@
-package BIO;
+package com.muyonghui.io.bio;
 /*
  * Created by muyonghui on 2017/8/1.
  */

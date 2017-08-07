@@ -1,4 +1,4 @@
-package com.muyh.bean;/*
+package com.muyonghui.dao.bean;/*
  * Created by muyonghui on 2017/8/2.
  */
 

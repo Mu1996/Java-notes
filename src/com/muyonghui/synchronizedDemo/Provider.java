@@ -1,12 +1,12 @@
-package com.muyh.synchronizedDemo;/*
+package com.muyonghui.synchronizedDemo;/*
  * Created by muyonghui on 2017/8/5.
  */
 
-public class Customer implements Runnable {
+public class Provider implements Runnable {
 
     private Person person;
 
-    public Customer(Person person){
+    public Provider(Person person){
         this.person = person;
     }
 
@@ -14,8 +14,9 @@ public class Customer implements Runnable {
     public void run() {
 
         for (int i = 0; i < 10; i++){
+
             try {
-                person.out();
+                person.in();
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();

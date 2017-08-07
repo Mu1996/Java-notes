@@ -1,4 +1,4 @@
-package com.muyh.synchronizedDemo;/*
+package com.muyonghui.synchronizedDemo;/*
  * Created by muyonghui on 2017/8/5.
  */
 
