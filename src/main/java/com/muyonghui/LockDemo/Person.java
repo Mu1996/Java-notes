@@ -2,7 +2,6 @@ package com.muyonghui.LockDemo;/*
  * Created by muyonghui on 2017/8/5.
  */
 
-import java.util.PriorityQueue;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
