@@ -7,6 +7,7 @@ package com.muyonghui.coding;
  * 当 i > k时，我们就从1~i-1中查找；
  * 当 i < k时，就从i+1~n中查找。
  */
+import java.util.Scanner;
 public class SearchKMin {
     public static int partion(int A[], int low, int high) {
         int pivotkey = A[low];
@@ -40,9 +41,15 @@ public class SearchKMin {
     }
 
     public static void main(String[] args) {
-        int A[] = { 49, 38, 65, 97, 76, 13, 27, 49 };
-        int k =2;
-        int mink = quickSort(A, 0, A.length - 1,k);
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int A[] = new int[n];
+
+        for(int i = 0; i < n; i++){
+            A[i] = sc.nextInt();
+        }
+
+        int mink = quickSort(A, 0, A.length - 1,3);
         System.out.println("mink:"+mink);
     }
 }
