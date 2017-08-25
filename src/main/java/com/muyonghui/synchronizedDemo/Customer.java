@@ -10,7 +10,6 @@ public class Customer implements Runnable {
         this.person = person;
     }
 
-    @Override
     public void run() {
 
         for (int i = 0; i < 10; i++){
