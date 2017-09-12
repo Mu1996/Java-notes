@@ -1,4 +1,4 @@
-package com.muyonghui.leetcode;
+package com.muyonghui.leetcode.MergeTwoSortedLists;
 
 import java.io.BufferedReader;
 import java.io.IOException;
