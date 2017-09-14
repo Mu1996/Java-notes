@@ -48,3 +48,12 @@ switch后面的括号里面只能放int类型的值，但由于byte，short，ch
     * 循环ArrayList时，普通for循环比foreach循环花费的时间要少一点；循环LinkList时，普通for循环比foreach循环花费的时间要多很多。 
     * 需要循环数组结构的数据时，建议使用普通for循环，因为for循环采用下标访问，对于数组结构的数据来说，采用下标访问比较好。 
     * 需要循环链表结构的数据时，一定不要使用普通for循环，这种做法很糟糕，数据量大的时候有可能会导致系统崩溃。    
+7. 简述RuntimeException、和checkedException、Error三者的关系？
+    * Exception分两种，checked和unchecked。checked Exception就是在写代码的时候，IDE(比如Eclipse)会要求你写try catch的那种Exception，比如IOException。
+    * 这种Exception是Java的设计者要求你的程序去处理的。
+    * 这种异常一般不会影响程序的主体，容易手动诊断修复，所以Java要求你在catch下面写出处理的代码，以保证程序遇到此类exception之后还可以正常运行。
+    * unchecked这一类就是你在代码处理了checked exception之后，你在运行时候依然会遇到的exception，所以又叫做RunTimeException，比如NullPointerException, IndexOutOfBoundsException。
+    * 此类exception相较于前面那种更容易影响程序运行，从设计者角度不提倡从程序中catch出来并处理，当然你也可以这么做。
+    * Error就是程序运行时候抛出的最严重级别的错误了，如VirtualMachineError，ThreadDeath。抛出了Error的程序从Java设计的角度来讲，程序基本不可以通过后续代码修复，从而理应终止。
+    * 当然，从语法上来讲，所有这些都可以被写进catch里面，但是Error因为上述原因，不应该被代码处理。
+8. 第一范式:(1NF)无重复的列 第二范式:(2NF)属性完全依赖于主键 第三范式:(3NF)属性不依赖于其它非主属性 
