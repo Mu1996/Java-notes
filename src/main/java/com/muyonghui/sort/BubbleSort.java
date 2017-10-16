@@ -9,7 +9,7 @@ public class BubbleSort{
         for (int i = 0; i < a.length; ++ i)
             System.out.print(a[i] + " ");
 
-        bubbleSort(a);
+        bubbleSort2(a);
 
         System.out.println();
         System.out.println("排序后：");
@@ -17,12 +17,15 @@ public class BubbleSort{
             System.out.print(a[i] + " ");
     }
 
+    // 冒泡排序
     public static void bubbleSort(int a[]){
         int temp  = 0;
 
         for (int i = 0; i < a.length - 1; ++ i){
             for (int j = i; j < a.length; ++ j){
 
+                // a[i] > a[j] 从小到大排序
+                // a[i] < a[j] 从大到小排序
                 if (a[i] > a[j]){
                     temp = a[i];
                     a[i] = a[j];
