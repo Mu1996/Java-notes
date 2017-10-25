@@ -6,15 +6,17 @@ public class BubbleSort{
         int a[] = {1, 23, 45, 6, 0, 99, 100, 89, 34, 56};
 
         System.out.println("排序前：");
-        for (int i = 0; i < a.length; ++ i)
+        for (int i = 0; i < a.length; ++ i) {
             System.out.print(a[i] + " ");
+        }
 
         bubbleSort2(a);
 
         System.out.println();
         System.out.println("排序后：");
-        for (int i = 0; i < a.length; ++ i)
+        for (int i = 0; i < a.length; ++ i) {
             System.out.print(a[i] + " ");
+        }
     }
 
     // 冒泡排序

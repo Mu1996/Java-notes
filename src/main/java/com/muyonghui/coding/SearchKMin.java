@@ -13,11 +13,13 @@ public class SearchKMin {
         int pivotkey = A[low];
         int temp;
         while (low < high) {
-            while (low < high && A[high] >= pivotkey)
+            while (low < high && A[high] >= pivotkey) {
                 high--;
+            }
             A[low] = A[high];
-            while (low < high && A[low] <= pivotkey)
+            while (low < high && A[low] <= pivotkey) {
                 low++;
+            }
             A[high] = A[low];
         }
         A[low] = pivotkey;
