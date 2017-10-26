@@ -1,23 +1,28 @@
-package com.muyonghui;
+package com.muyonghui;/*
+ * Created by muyonghui on 2017/9/10.
+ */
 
-import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
-        Long[] data = {1L,2L,3L,4L,5L,6L,7L,8L,9L,10L};
-        Long[] res = new Long[data.length];
-        for (int i = data.length-1; i >= 5;i--) {
-            BigDecimal sum = BigDecimal.ZERO;
-            for (int j = 0; j < 5; j++) {
-                sum = sum.add(new BigDecimal(data[i-j]));
-            }
-            res[i-5] = sum.divide(new BigDecimal(5)).longValue();
+//        int i = 0;
+//        if (i){
+//            System.out.println(1);
+//        }
+        boolean b =true;
+        boolean b2 =true;
+        if (b == b2) {
+            System.out.println("so true");
+        }
+        int i =1;
+        int j =2;
+        if (i==1||j==2)
+            System.out.println("ok");
 
-        }
-        for (Long count :
-                res) {
-            System.out.println(count);
-        }
     }
+
 }
