@@ -13,6 +13,7 @@
             <artifactId>fastjson</artifactId>
             <version>1.2.13</version>
         </dependency>
+
         <!-- https://mvnrepository.com/artifact/org.dom4j/dom4j -->
         <dependency>
             <groupId>org.dom4j</groupId>
