@@ -11,7 +11,7 @@ public class QuickSort {
             System.out.print(a[i] + " ");
         }
 
-        quickSort(a,0,a.length-1);
+        quickSort2(a,0,a.length-1);
 
         System.out.println("\n");
         System.out.println("排序后：");
@@ -43,5 +43,37 @@ public class QuickSort {
             if (end > i)
                 quickSort(numbers, i, end);
         }
+    }
+
+    public static void quickSort2(int[] numbers, int start, int end) {
+        int i,j,tmp,base;
+        if (start > end)
+            return;
+        base = numbers[start];
+        i = start;
+        j = end;
+
+        while (i != j){
+
+            while(numbers[j]>=base && i<j){
+                j--;
+            }
+            while(numbers[i]<=base && i<j){
+                i++;
+            }
+
+            if (i < j){
+                tmp = numbers[j];
+                numbers[j] = numbers[i];
+                numbers[i] = tmp;
+            }
+
+
+        }
+        numbers[start] = numbers[i];
+        numbers[i] = base;
+        quickSort2(numbers, start, i -1);
+        quickSort2(numbers, i+1, end);
+
     }
 }
