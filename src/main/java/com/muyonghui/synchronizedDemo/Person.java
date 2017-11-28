@@ -42,7 +42,7 @@ public class Person {
             while (person <= 0){
 
                 try {
-                    System.out.println("走完了");
+                    System.out.println(Thread.currentThread()+"走完了");
                     syncObject.wait();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
@@ -66,6 +66,7 @@ public class Person {
         new Thread(new Provider(person),"生产者2").start();
         new Thread(new Customer(person),"消费者2").start();
         new Thread(new Customer(person),"消费者3").start();
+        new Thread(new Customer(person),"消费者4").start();
 
     }
 
