@@ -1,0 +1,117 @@
+本地mac系统 使用的brew install redis 安装
+
+启动：
+brew services start redis （后台启动）
+redis-server /usr/local/etc/redis.conf
+
+redis的优势
+存储结构
+1.	字符类型（string）
+2.	散列类型（hash）
+3.	列表类型（list）
+4.	集合类型（set）
+5.	有序集合（sorted set）
+
+功能
+1.  可以为每个key设置超时时间
+2.  可以通过列表类型来实现分布式队列的操作
+3.  支持发布订阅的消失模式
+
+操作简单
+1.  提供了很多命令与redis进行交互
+
+redis的应用场景
+1.  数据缓存（商品数据、新闻、热点数据）
+2.  单点登录
+3.  秒杀、抢购
+4.  网站访问排名
+5.  应用的模块开发
+
+redis的安装(Linux)
+1.	下载redis安装包
+2.	tar -zxvf 安装包
+3.	在redis目录下 执行 make
+4.	可以通过make test测试编译状态
+5.	make install [prefix=/path]完成安装
+
+启动停止redis
+./redis-server ../redis.conf
+./redis-cli shutdown
+以后台进程的方式启动，修改redis.conf   daemonize=yes
+
+连接到redis的命令
+./redis-cli -h 127.0.0.1 -p 6379
+
+其他命令说明
+redis-server 启动服务
+redis-cli 访问到redis的控制台
+redis-benchmark 性能测试的工具
+redis-check-aof aof文件进行检测的工具
+redis-check-dump  rdb文件检查工具
+redis-sentinel  sentinel 服务器配置
+
+多数据支持
+默认支持16个数据库；可以理解为一个命名空间
+跟关系型数据库不一样的点
+1.	redis不支持自定义数据库名词
+2.	每个数据库不能单独设置授权
+3.	每个数据库之间并不是完全隔离的。可以通过flushall命令清空redis实例面的所有数据库中的数据
+通过select dbid 去选择不同的数据库命名空间。dbid的取值范围默认是0 -15
+
+
+使用入门
+1.	获得一个符合匹配规则的键名列表
+keys pattern [?/*/[]]
+keys mu:name
+2.	判断一个键是否存在，EXISTS key
+3.	type key 去获得这个key的数据结构类型
+
+各种数据结构的使用
+
+key的设计
+对象类型:对象id:对象属性:对象子属性
+建议对key进行分类，同步在wiki统一管理
+短信重发机制：sms:limit:mobile 138。。。。。 expire
+
+字符类型
+一个字符类型的key默认存储的最大容量是512M
+赋值和取值
+SET key value
+GET key
+
+同时获得／赋值多个key的value
+mget key key..
+mset key value  key value  key value …
+
+追加字符串
+append key append-string
+
+获得key对应的value的长度
+strlen  key
+
+递增数字
+incr key 原子递增
+incrby key increment递增指定整数
+decr key 原子递减
+
+错误的演示
+int value= get key;
+value =value +1;
+set key value;
+
+
+列表类型list
+可以存储一个有序的字符串列表
+LPUSH/RPUSH： 从左边或者右边push数据
+LPUSH/RPUSH key value value …
+｛17 20 19 18 16｝
+
+llen num  获得列表的长度
+lrange key  start stop
+索引可以是负数， -1表示最右边的第一个元素
+lrem key count value
+lset key index value
+LPOP/RPOP : 取数据
+应用场景：可以用来做分布式消息队列
+
+
