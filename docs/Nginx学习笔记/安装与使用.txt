@@ -1,0 +1,64 @@
+Nginx的安装
+
+nginx安装
+1.	tar -zxvf 安装包
+2.	./configure --prefix=/mic/data/program/nginx   默认安装到/usr/local/nginx
+3.	make & make install
+
+启动停止
+./nginx -c /mic/data/program/nginx/conf/nginx.conf 启动nginx
+-c表示指定nginx.conf的文件。如果不指定，默认为NGINX_HOME/conf/nginx.conf
+
+发送信号的方式
+kill -QUIT  进程号
+kil -TERM  进程号
+
+停止nginx
+./nginx -s stop  停止
+./nginx -s quit   退出
+./nginx -s reload  重新加载nginx.conf
+
+安装过程中可能会出现的问题
+缺少pcre的依赖
+缺少openssl的依赖
+yum install pcre-devel
+yum install openssl-devel
+yum install zlib-devel
+
+Nginx核心配置分析
+nginx的核心配置文件,主要包括三个段
+Main、 Event 、 Http
+
+Nginx的日志配置
+通过access_log进行日志记录
+nginx中有两条是配置日志的：一条是log_format 来设置日志格式 ； 另外一条是access_log
+
+#log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+#                  '$status $body_bytes_sent "$http_referer" '
+#                  '"$http_user_agent" "$http_x_forwarded_for"';
+
+access_log  格式
+#error_log  logs/error.log  notice;
+logo声明   路径及文件名 日志标识
+
+nginx日志切割
+crontab
+mv access.log access.log.20171206
+kill -USR1 Nginx 主进程号  让nginx重新生成一个日志文件access.log
+
+
+location的语法和匹配规则
+location [~|=|^~|~*] /uri {
+
+}
+location的匹配规则
+精准匹配
+location=/uri{}
+优先级最高的匹配规则
+
+一般匹配
+location /uri{
+}
+普通匹配的优先级要高于正则匹配
+如果存在多个相同的前缀的一般匹配，那么最终会按照最大长度来做匹配
+正则匹配
